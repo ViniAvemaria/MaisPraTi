@@ -12,7 +12,7 @@ Este repositório contém os exercícios referentes às operações fundamentais
 
     ```bash
     git clone https://github.com/ViniAvemaria/MaisPraTi.git
-    cd seu-repositorio
+    cd Modulo1/Exercicios
     ```
 
 2. Instale as dependências:
