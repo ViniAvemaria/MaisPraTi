@@ -30,5 +30,5 @@ Este repositório contém os exercícios referentes às operações fundamentais
 Você pode executar qualquer exercício individualmente usando o Node.js. Por exemplo:
 
 ```bash
-node "exercicio1.js"
+node "exercicio01.js"
 ```
