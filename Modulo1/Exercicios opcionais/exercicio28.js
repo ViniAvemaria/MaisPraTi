@@ -3,8 +3,6 @@ item:
 a) a soma dos elementos acima da diagonal principal;
 b) a soma dos elementos abaixo da diagonal principal; */
 
-const math = require("mathjs");
-
 function diagonalSum(matrix) {
     let topTotal = 0,
         bottomTotal = 0;
@@ -19,7 +17,16 @@ function diagonalSum(matrix) {
     return { topTotal, bottomTotal };
 }
 
-const M = math.randomInt([10, 10], 1, 10);
+const M = [];
+
+for (let i = 0; i < 10; i++) {
+    const row = [];
+    for (let j = 0; j < 10; j++) {
+        row.push(Math.ceil(Math.random() * 20));
+    }
+    M.push(row);
+}
+
 const { topTotal, bottomTotal } = diagonalSum(M);
 
 console.log(M.map((row) => row.join(" ")).join("\n"));
