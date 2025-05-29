@@ -1,6 +1,6 @@
 # Curso +PraTi - Atividades do Módulo 1
 
-Este repositório contém os exercícios que contemplam as operações fundamentais, estruturas de controle condicional e de repetição.
+Este repositório contém os exercícios que contemplam as operações fundamentais, estruturas de controle, vetores, funções e recursão.
 
 ## Requisitos
 
