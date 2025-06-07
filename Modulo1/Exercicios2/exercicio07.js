@@ -18,5 +18,9 @@ const products = [
     },
 ];
 
-const result = products.sort((a, b) => a.price - b.price).map((product) => product.name);
-console.log(result);
+const sortByPrice = (products) => {
+    return products.sort((a, b) => a.price - b.price).map((product) => product.name);
+};
+
+const newProducts = sortByPrice(products);
+console.log(newProducts);
