@@ -3,18 +3,18 @@ Crie function debounce(fn, delay) que receba uma função fn e um delay
 em ms, retornando uma nova função que só executa fn se não for
 chamada novamente dentro do intervalo. */
 
-const helloWorld = () => {
-    console.log("Hello World!");
+const helloWorld = (str) => {
+    console.log("Hello " + str);
 };
 
 const debounce = (fn, delay) => {
     let id;
-    return () => {
+    return (...args) => {
         clearTimeout(id);
-        id = setTimeout(() => fn(), delay);
+        id = setTimeout(() => fn(args), delay);
     };
 };
 
 const sayHello = debounce(helloWorld, 500);
-sayHello();
-sayHello();
+sayHello("World!");
+sayHello("World!");
