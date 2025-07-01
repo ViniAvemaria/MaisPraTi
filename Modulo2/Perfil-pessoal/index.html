@@ -11,16 +11,16 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="layout">
         <header>
             <div class="header-container">
                 <h1><a href="#home">Portfólio</a></h1>
                 <nav>
                     <ul>
-                        <li><a href="#about-me-section">Sobre mim</a></li>
-                        <li><a href="#skills-section">Habilidades</a></li>
-                        <li><a href="#projects-section">Projetos</a></li>
-                        <li><a href="#contact-section">Contato</a></li>
+                        <li><a href="#about-me">Sobre mim</a></li>
+                        <li><a href="#skills">Habilidades</a></li>
+                        <li><a href="#projects">Projetos</a></li>
+                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </nav>
             </div>
@@ -28,11 +28,11 @@
 
         <main>
             <section id="home">
-                <div class="home-container">
+                <div class="content">
                     <div>
                         <h2>Olá, eu sou o <span>Vinicius</span></h2>
                         <h2>Desenvolvedor Full Stack</h2>
-                        <div class="social-icon">
+                        <div id="social-icon">
                             <a href="https://github.com/ViniAvemaria" target="_blank" rel="noopener noreferrer">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     viewBox="0 0 16 16">
@@ -50,12 +50,12 @@
                             </a>
                         </div>
                     </div>
-                    <img id="profile-picture" width="400" height="400" src="assets/cat-pfp.jpg" alt="pfp">
+                    <img id="profile-picture" width="400" height="400" src="assets/profile-picture.jpg" alt="pfp">
                 </div>
             </section>
 
-            <section id="about-me-section">
-                <div class="about-me-container">
+            <section id="about-me">
+                <div class="content">
                     <h2>Apresentação</h2>
                     <p>
                         Sou Vinicius de Moura Avemaria, estudante de Engenharia de Software e atualmente em formação
@@ -69,14 +69,46 @@
                 </div>
             </section>
 
-            <section id="skills-section">
+            <section id="skills">
+                <div class="content">
+                    <h2>Habilidades</h2>
+                    <div id="skills-display">
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original-wordmark.svg"
+                                width="80" height="80" />
+                        </div>
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original-wordmark.svg"
+                                width="80" height="80" />
+                        </div>
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                width="75" height="75" />
+                        </div>
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+                                width="80" height="80" />
+                        </div>
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original-wordmark.svg"
+                                width="80" height="80" />
+                        </div>
+                        <div>
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+                                width="80" height="80" />
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            <section id="projects-section">
+            <section id="projects">
+                <div class="content">
+                    <h2>Projetos</h2>
+                </div>
             </section>
 
-            <section id="contact-section">
-                <div class="contact-container">
+            <section id="contact">
+                <div class="content">
                     <h2>Deixe uma mensagem</h2>
                     <form>
                         <div>
@@ -94,7 +126,7 @@
                             <textarea name="message" name="message" id="message"></textarea>
                         </div>
 
-                        <button id="form-btn">Enviar</button>
+                        <button id="send-btn">Enviar</button>
                     </form>
                 </div>
             </section>

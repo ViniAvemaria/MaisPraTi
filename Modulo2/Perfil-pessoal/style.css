@@ -18,7 +18,7 @@ body {
     background-color: var(--primary-bg-color);
 }
 
-.container {
+.layout {
     display: flex;
     flex-direction: column;
 }
@@ -93,24 +93,45 @@ main {
 }
 
 section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 5em;
     min-height: calc(115vh - 10em);
 }
 
-section h2:not(#home h2) {
-    color: var(--primary-color);
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.home-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 100px;
-    padding: 8vw;
+.content:not(#home .content, #contact .content) {
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--secundary-bg-color);
+    padding: 6vh 6vw;
+    width: 55vw;
+}
+
+.content h2:not(#home h2, #contact h2) {
+    align-self: flex-start;
+    margin-bottom: 1.5em;
 }
 
 h2 {
     font-size: 2em;
+    color: var(--primary-color);
+}
+
+#home .content {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+#home h2 {
     color: var(--primary-text-color);
 }
 
@@ -118,19 +139,19 @@ span {
     color: var(--primary-color);
 }
 
-.social-icon {
+#social-icon {
     display: flex;
     gap: 2em;
 }
 
-.social-icon svg {
+#social-icon svg {
     color: var(--primary-color);
     width: 2em;
     height: 2em;
     transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.social-icon svg:hover {
+#social-icon svg:hover {
     color: var(--hover-color);
     transform: scale(1.1);
 }
@@ -142,52 +163,59 @@ span {
     border: 7px solid var(--hover-color);
 }
 
-.about-me-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 0 18vw;
-    padding-top: 15vh;
-}
-
-.about-me-container h2 {
-    align-self: flex-start;
-    margin-bottom: 2em;
-}
-
-.about-me-container p {
+#about-me p {
     color: var(--primary-text-color);
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-align: justify;
 }
 
-#contact-section {
+#skills-display {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border-color);
+}
+
+#skills-display div {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2.5em;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+}
+
+#skills-display div:nth-child(3n) {
+    border-right: none;
+}
+
+#skills-display div:nth-last-child(-n + 3) {
+    border-bottom: none;
+}
+
+#skills-display img {
+    transition: transform 0.2s ease;
+}
+
+#skills-display div:hover img {
+    transform: scale(1.1);
+}
+
+#contact {
     min-height: calc(100vh - 10em + 2.5em);
 }
 
-.contact-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.contact-container form {
+#contact form {
     display: flex;
     flex-direction: column;
     gap: 4vh;
     border: 2px solid var(--border-color);
     border-radius: 16px;
-    padding: 3em 3.5em 2em 3.5em;
+    padding: 3em 3.5em 1.5em 3.5em;
     width: 20em;
 }
 
-.contact-container label {
+#contact label {
     color: var(--primary-text-color);
     padding-left: 6px;
     display: block;
@@ -195,13 +223,13 @@ span {
     margin-bottom: 1.5vh;
 }
 
-.contact-container label::after {
+#contact label::after {
     content: " *";
     color: red;
 }
 
-.contact-container input,
-.contact-container textarea {
+#contact input,
+#contact textarea {
     width: 100%;
     background-color: var(--secundary-bg-color);
     border: 1px solid var(--border-color);
@@ -209,18 +237,18 @@ span {
     color: var(--primary-text-color);
 }
 
-.contact-container input {
+#contact input {
     height: 1.4em;
     padding-left: 6px;
 }
 
-.contact-container textarea {
+#contact textarea {
     resize: none;
     height: 15vh;
     padding-left: 6px;
 }
 
-#form-btn {
+#send-btn {
     align-self: center;
     height: 4vh;
     width: 6vw;
@@ -233,7 +261,7 @@ span {
     transition: background-color 0.3s ease;
 }
 
-#form-btn:hover {
+#send-btn:hover {
     background-color: var(--hover-color);
 }
 
@@ -250,7 +278,8 @@ footer p {
 }
 
 @media (max-width: 1024px) {
-    .home-container {
+    #home .content {
         flex-direction: column;
+        gap: 100px;
     }
 }
