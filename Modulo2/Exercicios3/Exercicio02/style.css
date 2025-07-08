@@ -1,0 +1,39 @@
+:root {
+    --header-bg: #2a2a2a;
+    --content-bg: #1a1a1a;
+    --text-color: #f1f5f9;
+    --primary-color: #a855f7;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--content-bg);
+}
+
+main {
+    padding-left: 2em;
+}
+
+h2,
+h3 {
+    color: var(--primary-color);
+}
+
+li,
+a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#navbar ul {
+    display: flex;
+    gap: 5em;
+    list-style: none;
+}
+
+#navbar a:hover {
+    color: var(--primary-color);
+}

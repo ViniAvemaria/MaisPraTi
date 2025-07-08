@@ -1,0 +1,81 @@
+:root {
+    --header-bg: #2a2a2a;
+    --content-bg: #1a1a1a;
+    --text-color: #f1f5f9;
+    --primary-color: #9b30ff;
+    --hover-color: #881ecc;
+    --border-color: #333333;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--content-bg);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    padding: 3rem;
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+label {
+    color: var(--text-color);
+    display: block;
+    font-size: 1.1rem;
+}
+
+label::after {
+    content: " *";
+    color: red;
+}
+
+input,
+textarea,
+select {
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    background-color: var(--header-bg);
+    font-size: 1.1rem;
+}
+
+textarea {
+    resize: none;
+    height: 4rem;
+}
+
+input,
+textarea {
+    width: 100%;
+}
+
+#submit-btn {
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--content-bg);
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#submit-btn:hover {
+    background-color: var(--hover-color);
+}
