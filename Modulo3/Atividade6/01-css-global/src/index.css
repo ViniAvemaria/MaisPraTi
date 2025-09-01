@@ -4,12 +4,16 @@
     --text-color: #000000;
     --primary-color: #007bff;
     --secondary-color: #6c757d;
+    --skeleton-bg: #e0e0e0;
     --header-bg: #dee2e6;
     --card-bg: #f9f9f9;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --button-bg: #007bff;
     --button-hover-bg: #0056b3;
     --border-color: #ced4da;
+    --shimmer-color-start: rgba(255, 255, 255, 0);
+    --shimmer-color-middle: rgba(255, 255, 255, 0.5);
+    --shimmer-color-end: rgba(255, 255, 255, 0);
 }
 
 .dark {
@@ -18,6 +22,7 @@
     --text-color: #ffffff;
     --primary-color: #1e90ff;
     --secondary-color: #adb5bd;
+    --skeleton-bg: #1f1f1f;
     --header-bg: #1f1f1f;
     --card-bg: #2e2e2e;
     --card-hover-bg: #2a2a2a;
@@ -25,6 +30,9 @@
     --button-bg: #1e90ff;
     --button-hover-bg: #0d6efd;
     --border-color: #2c2c2c;
+    --shimmer-color-start: rgba(58, 58, 58, 0);
+    --shimmer-color-middle: rgba(58, 58, 58, 0.4);
+    --shimmer-color-end: rgba(58, 58, 58, 0);
 }
 
 * {
@@ -62,6 +70,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
     height: 5rem;
     overflow: hidden;
     border-bottom: 1px solid var(--border-color);
@@ -174,10 +183,10 @@ main {
 
 .product-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-auto-rows: 1fr;
     justify-items: center;
-    gap: 2rem;
+    gap: 2.3rem;
     padding: 2rem;
     border: 1px solid var(--border-color);
     border-radius: 12px;
@@ -207,8 +216,7 @@ main {
 }
 
 .product-img {
-    width: 100%;
-    max-width: 200px;
+    width: 200px;
     height: 200px;
     object-fit: contain;
 }
@@ -252,4 +260,71 @@ main {
 
 .add-btn:hover {
     background-color: var(--button-hover-bg);
+}
+
+/* 
+/////////////// SKELETON LOADING ///////////////
+*/
+
+.skeleton-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+    padding: 1.2rem;
+}
+
+.skeleton-image {
+    width: 200px;
+    height: 200px;
+    background: var(--skeleton-bg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.skeleton-text {
+    width: 80%;
+    height: 1.2rem;
+    background: var(--skeleton-bg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.skeleton-text.short {
+    width: 60%;
+}
+
+.skeleton-text.long {
+    width: 90%;
+}
+
+.skeleton-image::after,
+.skeleton-text::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -150px;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(
+        90deg,
+        var(--shimmer-color-start) 0%,
+        var(--shimmer-color-middle) 50%,
+        var(--shimmer-color-end) 100%
+    );
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -150px;
+    }
+    100% {
+        left: 100%;
+    }
 }
