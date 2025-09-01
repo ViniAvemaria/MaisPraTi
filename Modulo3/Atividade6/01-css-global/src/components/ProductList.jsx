@@ -69,13 +69,25 @@ function ProductList({ cartTab }) {
 
     return (
         <>
-            {cartTab && cartItems.length === 0 ? (
-                <h3 className="empty-cart-message">Your cart is empty</h3>
+            {cartTab ? (
+                cartItems.length === 0 ? (
+                    <h3 className="empty-cart-message">Your cart is empty</h3>
+                ) : (
+                    <>
+                        <ul className="product-list">
+                            {cartItems.map((product, index) => (
+                                <li key={index}>
+                                    <Card product={product} />
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                )
             ) : (
                 <ul className="product-list">
-                    {(cartTab ? cartItems : products).map((product, index) => (
+                    {products.map((product, index) => (
                         <li key={index}>
-                            <Card product={product}></Card>
+                            <Card product={product} />
                         </li>
                     ))}
                 </ul>

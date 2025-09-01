@@ -8,7 +8,7 @@ function Card({ product }) {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 1500);
+        }, 850);
     }, []);
 
     const formatPrice = (value) =>
