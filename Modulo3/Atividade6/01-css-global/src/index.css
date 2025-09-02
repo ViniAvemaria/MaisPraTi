@@ -9,7 +9,6 @@
     --header-bg: #dee2e6;
     --card-bg: #f9f9f9;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --button-bg: #007bff;
     --button-hover-bg: #0056b3;
     --border-color: #ced4da;
     --shimmer-color-start: rgba(255, 255, 255, 0);
@@ -27,9 +26,7 @@
     --skeleton-bg: #1f1f1f;
     --header-bg: #1f1f1f;
     --card-bg: #2e2e2e;
-    --card-hover-bg: #2a2a2a;
     --shadow-color: rgba(0, 0, 0, 0.6);
-    --button-bg: #1e90ff;
     --button-hover-bg: #0d6efd;
     --border-color: #2c2c2c;
     --shimmer-color-start: rgba(58, 58, 58, 0);
@@ -67,7 +64,6 @@ button {
 
 .logo {
     height: 200px;
-    cursor: pointer;
 }
 
 header {
@@ -113,7 +109,7 @@ nav {
 }
 
 .theme-btn.dark {
-    background-color: var(--primary-color);
+    background-color: #4f4f4f;
 }
 
 .theme-btn::before {
@@ -176,6 +172,30 @@ main {
     margin-top: 5rem;
     padding: 3rem 0;
     min-height: calc(100vh - 5rem);
+}
+
+.tab-title-container {
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    background-color: var(--primary-color);
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: var(--button-hover-bg);
 }
 
 .tab-title {
@@ -267,7 +287,7 @@ main {
     align-items: center;
     justify-content: center;
     line-height: 1;
-    background-color: var(--button-bg);
+    background-color: var(--primary-color);
     border-radius: 18px;
     border: 1px solid var(--border-color);
     padding: 6px 14px;
@@ -290,10 +310,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
+    gap: 0.7rem;
     height: 100%;
     width: 100%;
-    padding: 1.2rem;
 }
 
 .skeleton-image {
@@ -303,23 +322,34 @@ main {
     position: relative;
     overflow: hidden;
     border-radius: 12px;
+    margin-bottom: 2rem;
 }
 
 .skeleton-text {
-    width: 80%;
-    height: 1.2rem;
+    width: 100%;
+    height: 1.5rem;
     background: var(--skeleton-bg);
     position: relative;
     overflow: hidden;
     border-radius: 6px;
 }
 
+.skeleton-text.rating {
+    width: 40%;
+}
+
 .skeleton-text.short {
     width: 60%;
 }
 
-.skeleton-text.long {
-    width: 90%;
+.skeleton-text.button {
+    border-radius: 12px;
+    width: 45%;
+    margin-top: 2rem;
+}
+
+.start-align {
+    align-self: flex-start;
 }
 
 .skeleton-image::after,
@@ -345,5 +375,17 @@ main {
     }
     100% {
         left: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
     }
 }

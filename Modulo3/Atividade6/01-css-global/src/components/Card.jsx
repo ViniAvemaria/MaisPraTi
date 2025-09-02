@@ -57,8 +57,10 @@ function Card({ product }) {
                 <>
                     <div className="skeleton-card">
                         <div className="skeleton-image"></div>
-                        <div className="skeleton-text long"></div>
-                        <div className="skeleton-text short"></div>
+                        <div className="skeleton-text rating start-align"></div>
+                        <div className="skeleton-text start-align"></div>
+                        <div className="skeleton-text short start-align"></div>
+                        <div className="skeleton-text button"></div>
                     </div>
                 </>
             ) : (

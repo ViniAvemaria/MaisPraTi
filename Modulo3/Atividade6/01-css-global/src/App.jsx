@@ -12,7 +12,19 @@ function App() {
             </header>
             <main>
                 <div className="container">
-                    <h2 className="tab-title">{cartTab ? "Shopping Cart" : "Products"}</h2>
+                    <div className="tab-title-container">
+                        {cartTab ? (
+                            <>
+                                <button className="back-btn" onClick={() => setCartTab(false)}>
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                </button>
+                                <h2 className="tab-title">Shopping Cart</h2>
+                            </>
+                        ) : (
+                            <h2 className="tab-title">Products</h2>
+                        )}
+                    </div>
+
                     <ProductList cartTab={cartTab} />
                 </div>
             </main>

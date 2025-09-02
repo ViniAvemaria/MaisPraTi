@@ -7,7 +7,7 @@ function Navbar({ setCartTab }) {
 
     return (
         <nav className="container">
-            <img onClick={() => setCartTab(false)} className="logo" src={`/Logo/logo-${theme}.png`} alt="logo" />
+            <img className="logo" src={`/Logo/logo-${theme}.png`} alt="logo" />
 
             <div className="buttons-container">
                 <button className={`theme-btn ${theme}`} onClick={toggleTheme}>
