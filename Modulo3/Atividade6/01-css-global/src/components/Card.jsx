@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContex";
+import Skeleton from "./Skeleton";
 
 function Card({ product }) {
     const { cartItems, addItem, removeItem } = useCart();
@@ -54,15 +55,7 @@ function Card({ product }) {
     return (
         <div className="product-card">
             {isLoading ? (
-                <>
-                    <div className="skeleton-card">
-                        <div className="skeleton-image"></div>
-                        <div className="skeleton-text rating start-align"></div>
-                        <div className="skeleton-text start-align"></div>
-                        <div className="skeleton-text short start-align"></div>
-                        <div className="skeleton-text button"></div>
-                    </div>
-                </>
+                <Skeleton />
             ) : (
                 <>
                     <img className="product-img" src={`./Products/${product.img}`} alt={`${product.name} image`} />

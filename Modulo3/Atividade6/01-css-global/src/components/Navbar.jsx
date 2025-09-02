@@ -11,7 +11,7 @@ function Navbar({ setCartTab }) {
 
             <div className="buttons-container">
                 <button className={`theme-btn ${theme}`} onClick={toggleTheme}>
-                    <span className="switch-circle"></span>
+                    <span></span>
                 </button>
                 <button onClick={() => setCartTab(true)} className="cart-btn">
                     <span className="item-counter">{cartItems.length}</span>
