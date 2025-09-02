@@ -10,13 +10,13 @@ function Navbar({ setCartTab }) {
             <img onClick={() => setCartTab(false)} className="logo" src={`/Logo/logo-${theme}.png`} alt="logo" />
 
             <div className="buttons-container">
-                <button className={`toggle-switch ${theme}`} onClick={toggleTheme}>
+                <button className={`theme-btn ${theme}`} onClick={toggleTheme}>
                     <span className="switch-circle"></span>
                 </button>
-                <div onClick={() => setCartTab(true)} className="cart-container">
-                    <span>{cartItems.length}</span>
+                <button onClick={() => setCartTab(true)} className="cart-btn">
+                    <span className="item-counter">{cartItems.length}</span>
                     <i className="fa-solid fa-cart-shopping"></i>
-                </div>
+                </button>
             </div>
         </nav>
     );

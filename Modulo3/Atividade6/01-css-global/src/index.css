@@ -2,6 +2,7 @@
     --bg-color: #ffffff;
     --bg-secondary: #e9ecef;
     --text-color: #000000;
+    --icon-color: #2e2e2e;
     --primary-color: #007bff;
     --secondary-color: #6c757d;
     --skeleton-bg: #e0e0e0;
@@ -20,6 +21,7 @@
     --bg-color: #121212;
     --bg-secondary: #1c1c1c;
     --text-color: #ffffff;
+    --icon-color: #ffffff;
     --primary-color: #1e90ff;
     --secondary-color: #adb5bd;
     --skeleton-bg: #1f1f1f;
@@ -53,6 +55,10 @@ body {
 
 p {
     color: var(--text-color);
+}
+
+button {
+    font-family: inherit;
 }
 
 /* 
@@ -94,21 +100,23 @@ nav {
 /////////////// THEME BUTTON ///////////////
 */
 
-.toggle-switch {
-    width: 50px;
-    height: 24px;
+.theme-btn {
+    box-sizing: initial;
+    width: 44px;
+    height: 20px;
     border-radius: 12px;
     background-color: #ccc;
+    border: 2px solid var(--icon-color);
     position: relative;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
-.toggle-switch.dark {
+.theme-btn.dark {
     background-color: var(--primary-color);
 }
 
-.toggle-switch::before {
+.theme-btn::before {
     content: "";
     position: absolute;
     top: 0;
@@ -116,24 +124,27 @@ nav {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: white;
+    transform: translateX(-0.4px);
+    background-color: var(--icon-color);
     transition: transform 0.2s ease;
 }
 
-.toggle-switch.dark::before {
-    transform: translateX(26px);
+.theme-btn.dark::before {
+    transform: translateX(24.5px);
 }
 
 /* 
 /////////////// CART BUTTON ///////////////
 */
 
-.cart-container {
+.cart-btn {
     display: flex;
     justify-content: flex-end;
+    border: none;
+    background: none;
 }
 
-.cart-container i {
+.cart-btn i {
     color: var(--text-color);
     font-size: 2rem;
     margin-top: 0.5rem;
@@ -141,7 +152,7 @@ nav {
     cursor: pointer;
 }
 
-.cart-container span {
+.cart-btn .item-counter {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -202,7 +213,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     gap: 2rem;
     height: 100%;
     max-width: 235px;
@@ -229,6 +239,11 @@ main {
     width: 100%;
 }
 
+.star-icon {
+    color: gold;
+    font-size: 0.75rem;
+}
+
 .product-name {
     display: -webkit-box;
     display: box;
@@ -248,11 +263,15 @@ main {
 }
 
 .add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     background-color: var(--button-bg);
     border-radius: 18px;
     border: 1px solid var(--border-color);
-    padding: 5px 13px;
-    font-size: 1rem;
+    padding: 6px 14px;
+    font-size: 1.1rem;
     cursor: pointer;
     color: var(--card-bg);
     transition: background-color 0.3s ease;

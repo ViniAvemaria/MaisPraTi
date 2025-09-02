@@ -8,7 +8,7 @@ function Card({ product }) {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 850);
+        }, 800);
     }, []);
 
     const formatPrice = (value) =>
@@ -25,6 +25,32 @@ function Card({ product }) {
         else addItem(product);
     };
 
+    function createRating(productRating, totalStars = 5) {
+        return (
+            <div className="rating">
+                {[...Array(totalStars)].map((_, index) => {
+                    if (index + 1 <= Math.floor(productRating))
+                        return (
+                            <span key={index}>
+                                <i className="star-icon fa-solid fa-star"></i>
+                            </span>
+                        );
+                    if (index < productRating)
+                        return (
+                            <span key={index}>
+                                <i className="star-icon fa-regular fa-star-half-stroke"></i>
+                            </span>
+                        );
+                    return (
+                        <span key={index}>
+                            <i className="star-icon fa-regular fa-star"></i>
+                        </span>
+                    );
+                })}
+            </div>
+        );
+    }
+
     return (
         <div className="product-card">
             {isLoading ? (
@@ -39,6 +65,7 @@ function Card({ product }) {
                 <>
                     <img className="product-img" src={`./Products/${product.img}`} alt={`${product.name} image`} />
                     <div className="product-info">
+                        {createRating(product.rating)}
                         <p className="product-name">{product.name}</p>
                         <p className="price-tag">{formatPrice(product.price)}</p>
                     </div>
