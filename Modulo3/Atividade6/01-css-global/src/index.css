@@ -327,7 +327,7 @@ main {
 
 .skeleton-text {
     width: 100%;
-    height: 1.5rem;
+    height: 2rem;
     background: var(--skeleton-bg);
     position: relative;
     overflow: hidden;
@@ -382,10 +382,46 @@ main {
     html {
         font-size: 15px;
     }
+
+    .skeleton-text {
+        height: 1.48rem;
+    }
 }
 
 @media (max-width: 480px) {
     html {
         font-size: 14px;
+    }
+
+    .logo {
+        height: 170px;
+    }
+
+    .buttons-container {
+        gap: 1.5rem;
+    }
+
+    .theme-btn {
+        width: 34px;
+        height: 15px;
+    }
+
+    .theme-btn::before {
+        width: 15px;
+        height: 15px;
+    }
+
+    .theme-btn.dark::before {
+        transform: translateX(19.5px);
+    }
+
+    .skeleton-text {
+        height: 1.54rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        height: 150px;
     }
 }
