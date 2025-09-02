@@ -70,3 +70,15 @@
         left: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .skeletonText {
+        height: 1.48rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skeletonText {
+        height: 1.54rem;
+    }
+}

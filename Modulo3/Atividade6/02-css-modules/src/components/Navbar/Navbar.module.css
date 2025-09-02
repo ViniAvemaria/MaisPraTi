@@ -89,3 +89,33 @@
     border-radius: 50%;
     font-weight: 500;
 }
+
+@media (max-width: 480px) {
+    .logo {
+        height: 170px;
+    }
+
+    .buttonsContainer {
+        gap: 1.5rem;
+    }
+
+    .themeBtn {
+        width: 34px;
+        height: 15px;
+    }
+
+    .themeBtn::before {
+        width: 15px;
+        height: 15px;
+    }
+
+    .themeBtn.dark::before {
+        transform: translateX(19.5px);
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        height: 150px;
+    }
+}
