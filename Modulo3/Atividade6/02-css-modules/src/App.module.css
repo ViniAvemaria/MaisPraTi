@@ -1,0 +1,55 @@
+.header {
+    background-color: var(--header-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 5rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.main {
+    background-color: var(--bg-color);
+    margin-top: 5rem;
+    padding: 3rem 0;
+    min-height: calc(100vh - 5rem);
+}
+
+.tabTitleContainer {
+    position: relative;
+}
+
+.tabTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.backBtn {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    background-color: var(--primary-color);
+    border-radius: 18px;
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+.backBtn:hover {
+    background-color: var(--button-hover-bg);
+}

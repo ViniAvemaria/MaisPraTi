@@ -1,0 +1,19 @@
+.emptyCartMessage {
+    font-size: 1.7rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 10rem;
+}
+
+.productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-auto-rows: 1fr;
+    justify-items: center;
+    gap: 2.3rem;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background-color: var(--bg-secondary);
+    list-style: none;
+}
