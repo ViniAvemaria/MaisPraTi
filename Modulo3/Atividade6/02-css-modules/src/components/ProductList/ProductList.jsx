@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import { useCart } from "../../contexts/CartContex";
 import Card from "../Card/Card";
+import Skeleton from "../Skeleton/Skeleton";
 import styles from "./ProductList.module.css";
 
 function ProductList({ cartTab }) {
@@ -77,31 +79,27 @@ function ProductList({ cartTab }) {
     ];
 
     const { cartItems } = useCart();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 800);
+    }, [cartTab]);
 
     return (
         <>
-            {cartTab ? (
-                cartItems.length === 0 ? (
-                    <h3 className={styles.emptyCartMessage}>Your cart is empty</h3>
-                ) : (
-                    <>
-                        <ul className={styles.productList}>
-                            {cartItems.map((product, index) => (
-                                <li key={index}>
-                                    <Card product={product} />
-                                </li>
-                            ))}
-                        </ul>
-                    </>
-                )
+            {cartTab && cartItems.length === 0 ? (
+                <h3 className={styles.emptyCartMessage}>Your cart is empty</h3>
             ) : (
-                <ul className={styles.productList}>
-                    {products.map((product, index) => (
-                        <li key={index}>
-                            <Card product={product} />
-                        </li>
-                    ))}
-                </ul>
+                <>
+                    <ul className={styles.productList}>
+                        {(cartTab ? cartItems : products).map((product, index) => (
+                            <li key={index}>{isLoading ? <Skeleton /> : <Card product={product} />}</li>
+                        ))}
+                    </ul>
+                </>
             )}
         </>
     );

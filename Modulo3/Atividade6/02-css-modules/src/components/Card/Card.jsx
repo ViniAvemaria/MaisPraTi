@@ -1,17 +1,9 @@
-import { useState, useEffect } from "react";
 import { useCart } from "../../contexts/CartContex";
-import Skeleton from "../Skeleton/Skeleton";
+
 import styles from "./Card.module.css";
 
 function Card({ product }) {
     const { cartItems, addItem, removeItem } = useCart();
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 800);
-    }, []);
 
     const formatPrice = (value) =>
         new Intl.NumberFormat("pt-BR", {
@@ -55,25 +47,15 @@ function Card({ product }) {
 
     return (
         <div className={styles.productCard}>
-            {isLoading ? (
-                <Skeleton />
-            ) : (
-                <>
-                    <img
-                        className={styles.productImg}
-                        src={`./Products/${product.img}`}
-                        alt={`${product.name} image`}
-                    />
-                    <div className={styles.productInfo}>
-                        {createRating(product.rating)}
-                        <p className={styles.productName}>{product.name}</p>
-                        <p className={styles.priceTag}>{formatPrice(product.price)}</p>
-                    </div>
-                    <button onClick={handleClick} className={styles.addBtn}>
-                        {inCart ? "Remove from Cart" : "Add to Cart"}
-                    </button>
-                </>
-            )}
+            <img className={styles.productImg} src={`./Products/${product.img}`} alt={`${product.name} image`} />
+            <div className={styles.productInfo}>
+                {createRating(product.rating)}
+                <p className={styles.productName}>{product.name}</p>
+                <p className={styles.priceTag}>{formatPrice(product.price)}</p>
+            </div>
+            <button onClick={handleClick} className={styles.addBtn}>
+                {inCart ? "Remove from Cart" : "Add to Cart"}
+            </button>
         </div>
     );
 }
