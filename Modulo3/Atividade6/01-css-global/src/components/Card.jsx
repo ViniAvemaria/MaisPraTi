@@ -1,16 +1,7 @@
-import { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContex";
-import Skeleton from "./Skeleton";
 
 function Card({ product }) {
     const { cartItems, addItem, removeItem } = useCart();
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 800);
-    }, []);
 
     const formatPrice = (value) =>
         new Intl.NumberFormat("pt-BR", {
@@ -54,21 +45,15 @@ function Card({ product }) {
 
     return (
         <div className="product-card">
-            {isLoading ? (
-                <Skeleton />
-            ) : (
-                <>
-                    <img className="product-img" src={`./Products/${product.img}`} alt={`${product.name} image`} />
-                    <div className="product-info">
-                        {createRating(product.rating)}
-                        <p className="product-name">{product.name}</p>
-                        <p className="price-tag">{formatPrice(product.price)}</p>
-                    </div>
-                    <button onClick={handleClick} className="add-btn">
-                        {inCart ? "Remove from Cart" : "Add to Cart"}
-                    </button>
-                </>
-            )}
+            <img className="product-img" src={`./Products/${product.img}`} alt={`${product.name} image`} />
+            <div className="product-info">
+                {createRating(product.rating)}
+                <p className="product-name">{product.name}</p>
+                <p className="price-tag">{formatPrice(product.price)}</p>
+            </div>
+            <button onClick={handleClick} className="add-btn">
+                {inCart ? "Remove from Cart" : "Add to Cart"}
+            </button>
         </div>
     );
 }

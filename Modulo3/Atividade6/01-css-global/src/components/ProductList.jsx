@@ -1,5 +1,7 @@
+import { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContex";
 import Card from "./Card";
+import Skeleton from "./Skeleton";
 
 function ProductList({ cartTab }) {
     const products = [
@@ -76,31 +78,27 @@ function ProductList({ cartTab }) {
     ];
 
     const { cartItems } = useCart();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 800);
+    }, [cartTab]);
 
     return (
         <>
-            {cartTab ? (
-                cartItems.length === 0 ? (
-                    <h3 className="empty-cart-message">Your cart is empty</h3>
-                ) : (
-                    <>
-                        <ul className="product-list">
-                            {cartItems.map((product, index) => (
-                                <li key={index}>
-                                    <Card product={product} />
-                                </li>
-                            ))}
-                        </ul>
-                    </>
-                )
+            {cartTab && cartItems.length === 0 ? (
+                <h3 className="empty-cart-message">Your cart is empty</h3>
             ) : (
-                <ul className="product-list">
-                    {products.map((product, index) => (
-                        <li key={index}>
-                            <Card product={product} />
-                        </li>
-                    ))}
-                </ul>
+                <>
+                    <ul className="product-list">
+                        {(cartTab ? cartItems : products).map((product) => (
+                            <li key={product.id}>{isLoading ? <Skeleton /> : <Card product={product} />}</li>
+                        ))}
+                    </ul>
+                </>
             )}
         </>
     );
