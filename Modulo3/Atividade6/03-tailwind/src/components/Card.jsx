@@ -23,28 +23,19 @@ function Card({ product }) {
                 {[...Array(totalStars)].map((_, index) => {
                     if (index + 1 <= Math.floor(productRating))
                         return (
-                            <span key={index} className="">
-                                <i
-                                    className="fa-solid fa-star text-[0.75rem]"
-                                    style={{ color: "var(--star-color, gold)" }}
-                                ></i>
+                            <span key={index} className="text-yellow-300">
+                                <i className="fa-solid fa-star text-[0.75rem]"></i>
                             </span>
                         );
                     if (index < productRating)
                         return (
-                            <span key={index}>
-                                <i
-                                    className="fa-regular fa-star-half-stroke text-[0.75rem]"
-                                    style={{ color: "var(--star-color, gold)" }}
-                                ></i>
+                            <span key={index} className="text-yellow-300">
+                                <i className="fa-regular fa-star-half-stroke text-[0.75rem]"></i>
                             </span>
                         );
                     return (
-                        <span key={index}>
-                            <i
-                                className="fa-regular fa-star text-[0.75rem]"
-                                style={{ color: "var(--star-color, gold)" }}
-                            ></i>
+                        <span key={index} className="text-yellow-300">
+                            <i className="fa-regular fa-star text-[0.75rem]"></i>
                         </span>
                     );
                 })}
@@ -73,7 +64,7 @@ function Card({ product }) {
             {/* Add / Remove button */}
             <button
                 onClick={handleClick}
-                className="inline-flex items-center justify-center bg-primary rounded-[18px] border border-border px-[14px] py-[6px] text-[1.1rem] font-inherit cursor-pointer text-card transition-colors duration-300 hover:bg-button-hover"
+                className="inline-flex items-center justify-center bg-primary rounded-[18px] border border-border px-[14px] py-[4px] text-[1.1rem] font-inherit cursor-pointer text-card transition-colors duration-300 hover:bg-button-hover"
             >
                 {inCart ? "Remove from Cart" : "Add to Cart"}
             </button>

@@ -17,23 +17,13 @@ function Navbar({ setCartTab }) {
             {/* Right side buttons */}
             <div className="flex items-center gap-12 max-[480px]:gap-6">
                 {/* Theme toggle */}
-                <button
-                    onClick={toggleTheme}
-                    className={`
-            relative cursor-pointer rounded-[12px] border-2 border-icon 
-            transition-colors duration-200
-            ${theme === "dark" ? "bg-[#4f4f4f]" : "bg-[#ccc]"}
-            w-[44px] h-[20px] max-[480px]:w-[34px] max-[480px]:h-[15px]
-            before:content-[''] before:absolute before:top-0 before:left-0
-            before:rounded-full before:bg-icon before:transition-transform before:duration-200
-            before:h-[20px] before:w-[20px] max-[480px]:before:h-[15px] max-[480px]:before:w-[15px]
-            ${
-                theme === "dark"
-                    ? "before:translate-x-[24.5px] max-[480px]:before:translate-x-[19.5px]"
-                    : "before:translate-x-[-0.4px]"
-            }
-          `}
-                />
+                <button onClick={toggleTheme} className="text-[1.8rem] p-1 rounded focus:outline-none text-icon">
+                    {theme === "light" ? (
+                        <i className="fa-solid fa-toggle-off cursor-pointer"></i>
+                    ) : (
+                        <i className="fa-solid fa-toggle-on cursor-pointer"></i>
+                    )}
+                </button>
 
                 {/* Cart button */}
                 <button
