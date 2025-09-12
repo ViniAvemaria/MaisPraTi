@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+    --color-bg: var(--bg-color);
+    --color-bg-secondary: var(--bg-secondary);
+    --color-text: var(--text-color);
+    --color-icon: var(--icon-color);
+    --color-primary: var(--primary-color);
+    --color-secondary: var(--secondary-color);
+    --color-skeleton: var(--skeleton-bg);
+    --color-header: var(--header-bg);
+    --color-card: var(--card-bg);
+    --color-shadow: var(--shadow-color);
+    --color-button-hover: var(--button-hover-bg);
+    --color-border: var(--border-color);
+    --color-shimmer-start: var(--shimmer-color-start);
+    --color-shimmer-middle: var(--shimmer-color-middle);
+    --color-shimmer-end: var(--shimmer-color-end);
+}
+
+@layer base {
+    :root {
+        --bg-color: #ffffff;
+        --bg-secondary: #e9ecef;
+        --text-color: #000000;
+        --icon-color: #2e2e2e;
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --skeleton-bg: #e0e0e0;
+        --header-bg: #dee2e6;
+        --card-bg: #f9f9f9;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --button-hover-bg: #0056b3;
+        --border-color: #ced4da;
+        --shimmer-color-start: rgba(255, 255, 255, 0);
+        --shimmer-color-middle: rgba(255, 255, 255, 0.5);
+        --shimmer-color-end: rgba(255, 255, 255, 0);
+    }
+
+    [data-theme="dark"] {
+        --bg-color: #121212;
+        --bg-secondary: #1c1c1c;
+        --text-color: #ffffff;
+        --icon-color: #ffffff;
+        --primary-color: #1e90ff;
+        --secondary-color: #adb5bd;
+        --skeleton-bg: #1f1f1f;
+        --header-bg: #1f1f1f;
+        --card-bg: #2e2e2e;
+        --shadow-color: rgba(0, 0, 0, 0.6);
+        --button-hover-bg: #0d6efd;
+        --border-color: #2c2c2c;
+        --shimmer-color-start: rgba(58, 58, 58, 0);
+        --shimmer-color-middle: rgba(58, 58, 58, 0.4);
+        --shimmer-color-end: rgba(58, 58, 58, 0);
+    }
+
+    html {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    @media (max-width: 768px) {
+        html {
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        html {
+            font-size: 14px;
+        }
+    }
+}
+
+@keyframes loading {
+    0% {
+        left: -150px;
+    }
+    100% {
+        left: 100%;
+    }
+}
