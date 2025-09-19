@@ -11,7 +11,7 @@ public class Main {
             System.out.println("Preço sem desconto: " + product1.getPrice());
             product1.applyDiscount(35);
             System.out.println("Preço com desconto: " + product1.getPrice());
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao aplicar desconto: " + e.getMessage());
         }
 
@@ -23,7 +23,7 @@ public class Main {
             System.out.println("Preço sem desconto: " + product1.getPrice());
             product1.applyDiscount(60);
             System.out.println("Preço com desconto: " + product1.getPrice());
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao aplicar desconto: " + e.getMessage());
         }
     }

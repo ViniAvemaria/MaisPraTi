@@ -13,7 +13,7 @@ public class Main {
         try {
             Product product1 = new Product("Teclado", 150.99, 5);
             displayProductInfo(product1);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar produto: " + e.getMessage());
         }
 
@@ -23,7 +23,7 @@ public class Main {
         try {
             Product product2 = new Product(null, 65, 44);
             displayProductInfo(product2);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar produto: " + e.getMessage());
         }
 
@@ -33,7 +33,7 @@ public class Main {
         try {
             Product product2 = new Product("Monitor", -10, 21);
             displayProductInfo(product2);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar produto: " + e.getMessage());
         }
 
@@ -43,7 +43,7 @@ public class Main {
         try {
             Product product2 = new Product("Mesa", 250, -50);
             displayProductInfo(product2);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro ao criar produto: " + e.getMessage());
         }
     }
